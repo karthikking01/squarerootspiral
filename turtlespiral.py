@@ -1,22 +1,24 @@
-import turtle, math
+import turtle, time
 import itertools
 from random import randint, randrange
 def func():
     global ty
-    t.color("black")
+    style = style = ('Courier', 15, 'bold')
+    t.color("yellow")
     t.write('Now click on this screen and quit', font=style, align='center')
     ty = 1
 turtle.onkeypress(func, key='space')
 screen = turtle.Screen()
 screen.listen()
 home = (0, 0)
-input("PLEASE CONSIDER THIS WINDOW TOO! \n Not a virus no need to worry!\n Hit enter")
-inp = input("The spiral should end at: √")
-print("You may hit \"SPACE\" on the turtle window then click on graphics window to close the program")
-print("Now you may \"Minimize\" this window")
+inp = int(turtle.textinput("Enter the ending value", "The spiral shall end at √:"))
+fdval = int(turtle.textinput("Enter the scale", "How big the spiral should be in %(10-small, 100-big)"))
 t = turtle.Turtle()
 t.ht()
+style = ('Courier', 15, 'bold')
+t.write('To stop animation click space and wait', font=style, align='center')
 turtle.colormode(255)
+time.sleep(2)
 t.speed(100)
 listcor = [] 
 listang = []
@@ -31,8 +33,6 @@ t.fd(50)
 listcor.append(t.pos())
 t.home()
 listang.append(t.towards(100,100))
-style = ('Courier', 15, 'italic')
-t.write('To stop animation click space and wait', font=style, align='center')
 for (i,a,b) in zip(range(0,int(inp)), listcor, listang):
     t.goto(a)
     b += 90
